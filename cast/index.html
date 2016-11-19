@@ -37,7 +37,8 @@
         castReceiverManager.onSenderDisconnected = function(event) {
           console.log('Received Sender Disconnected event: ' + event.data);
           if (window.castReceiverManager.getSenders().length == 0) {
-            window.close();
+            document.getElementById("message").innerHTML="disconnected";
+            //window.close();
           }
         };
         
