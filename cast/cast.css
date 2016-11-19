@@ -12,7 +12,7 @@ html,body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: black;
+	background-color: #8b8b8b;
 }
 
 #message {
@@ -20,3 +20,7 @@ html,body {
 	padding: 3px;
 }
 
+#frame {
+	width: 100%;
+	height: 100%;
+}

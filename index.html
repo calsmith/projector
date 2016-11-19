@@ -197,7 +197,8 @@ function transcribe(words) {
 		<td>
 			<form method="get" action="JavaScript:update();">
 				<input id="input" class="border" type="text" size="30" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech/>
-				<input type="button" onclick="stopApp()" value="Stop Casting">
+				<input type="submit" value="Send"/>
+				<input type="button" onclick="stopApp()" value="Stop Casting"/>
 			</form>
 		</td>
 	</tr>
