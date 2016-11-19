@@ -12,11 +12,14 @@
         Talk to me cal
     </div>
     
-    <!-- iframe src="http://ccal.tumblr.com" frameborder="0" id="frame" -->
+    <iframe src="http://madebycalsmith.com/" frameborder="0" id="frame" />
     
-    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <script type="text/javascript">
+	 document.getElementById("message").innerHTML="init";
 	 window.onload = function() {
+		 document.getElementById("window loaded").innerHTML=text;
+		 
         cast.receiver.logger.setLevelValue(0);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
         console.log('Starting Receiver Manager');
@@ -71,7 +74,7 @@
       function displayText(text) {
         console.log(text);
         document.getElementById("message").innerHTML=text;
-        //document.getElementById("frame").src = text;
+        document.getElementById("frame").src = text;
         window.castReceiverManager.setApplicationState(text);
       };
     </script>
