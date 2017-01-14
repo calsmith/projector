@@ -6,7 +6,7 @@ ImgType = {
 
 var images = [];
 var totalImages = 0;
-var minTimeout = 3000;
+var minTimeout = 4000;
 var maxTimeout = 0;//10000;
 
 $(function() {
