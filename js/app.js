@@ -7,10 +7,11 @@ ImgType = {
 var images = [];
 var totalImages = 0;
 var minTimeout = 4000;
-var maxTimeout = 0;//10000;
+var maxTimeout = 15000;
 
 $(function() {
-    $.getJSON('js/images.json?x=3', function(data) {
+    // Fetch image list.
+    $.getJSON('js/images.json?v=2', function(data) {
         images = data.images;
         totalImages = images.length;
         if (totalImages != 0) {
@@ -24,9 +25,14 @@ $(function() {
     });
 
     playMusic();
+
+    // Add click listener.
+    $('#page').click(function() {
+        updateImages(true);
+    });
 });
 
-function updateImages() {
+function updateImages(noTimer) {
     var didSetBg = false;
     var didSetHero = false;
     while (!didSetBg || !didSetHero) {
@@ -54,8 +60,10 @@ function updateImages() {
 
     }
 
-    var delay = Math.floor(Math.random() * maxTimeout) + minTimeout;
-    setTimeout(updateImages, delay);
+    if (noTimer != true) {
+        var delay = Math.floor(Math.random() * maxTimeout) + minTimeout;
+        setTimeout(updateImages, delay);
+    }
 }
 
 /** Sets the element background image. */
