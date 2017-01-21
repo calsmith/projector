@@ -2,6 +2,19 @@
 <html>
   <head>
     <title>Cast</title>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
   </head>
   <body>
 
@@ -30,9 +43,10 @@
         // handler for 'senderdisconnected' event
         castReceiverManager.onSenderDisconnected = function(event) {
           console.log('Received Sender Disconnected event: ' + event.data);
+          /*
           if (window.castReceiverManager.getSenders().length == 0) {
             window.close();
-          }
+          }*/
         };
 
         // handler for 'systemvolumechanged' event
