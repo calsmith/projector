@@ -7,11 +7,11 @@ ImgType = {
 var images = [];
 var totalImages = 0;
 var minTimeout = 4000;
-var maxTimeout = 15000;
+var maxTimeout = 14000;
 
 $(function() {
     // Fetch image list.
-    $.getJSON('js/images.json?v=2', function(data) {
+    $.getJSON('js/images.json?v=3', function(data) {
         images = data.images;
         totalImages = images.length;
         if (totalImages != 0) {
@@ -24,7 +24,12 @@ $(function() {
         alert("Failed to load image list!\n" + msg);
     });
 
-    playMusic();
+    // Enable music if needed.
+    var mode = window.location.hash.substr(1);
+    if (!mode || mode == '') {
+        playMusic();
+        maxTimeout = 0;
+    }
 
     // Add click listener.
     $('#page').click(function() {
