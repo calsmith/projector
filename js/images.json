@@ -195,6 +195,9 @@
         ["bars2", 1],
         ["bglitch", 1],
         ["cardriving", 0],
-        ["lolwhat", 0]
+        ["lolwhat", 0],
+        ["stillonline", 0],
+        ["msn", 0],
+        ["darkshimmer", 1]
     ]
 }
