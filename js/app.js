@@ -6,8 +6,8 @@ ImgType = {
 
 var images = [];
 var totalImages = 0;
-var minTimeout = 4000;
-var maxTimeout = 14000;
+var minTimeout = 4100;
+var maxTimeout = 15000;
 
 $(function() {
     // Fetch image list.
