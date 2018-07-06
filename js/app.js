@@ -10,6 +10,13 @@ var minTimeout = 4100;
 var maxTimeout = 15000;
 
 $(function() {
+
+    // Check if running on mobile.
+    var browser = navigator.userAgent.toLowerCase();
+    if (string.includes("android") || string.includes("iphone")) {
+        alert("This experience is not fully supported on mobile devices.");
+    }
+
     // Fetch image list.
     $.getJSON('js/images.json?v=3', function(data) {
         images = data.images;
