@@ -8,14 +8,26 @@ var images = [];
 var totalImages = 0;
 var minTimeout = 4100;
 var maxTimeout = 15000;
+var timer;
 
 $(function() {
 
     // Check if running on mobile.
     var browser = navigator.userAgent.toLowerCase();
-    if (string.includes("android") || string.includes("iphone")) {
-        alert("This experience is not fully supported on mobile devices.");
+    if (browser.includes("android") || browser.includes("iphone")) {
+        alert("Open this site on a desktop device for the best experience:\nmadebycalsmith.com/projector");
     }
+
+    // Add begin button.
+    $('#startButton').click(function() {
+        begin();
+    });
+    
+});
+
+function begin() {
+    // Remove start button.
+    $('#startButton').remove();
 
     // Fetch image list.
     $.getJSON('js/images.json?v=3', function(data) {
@@ -34,17 +46,22 @@ $(function() {
     // Enable music if needed.
     var mode = window.location.hash.substr(1);
     if (!mode || mode == '') {
-        playMusic();
+        $('#audio')[0].play();
         maxTimeout = 0;
     }
 
     // Add click listener.
     $('#page').click(function() {
-        updateImages(true);
+        updateImages();
     });
-});
 
-function updateImages(noTimer) {
+    // Go full-sceen.
+    if (document.documentElement.webkitRequestFullScreen) {  
+        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+    } 
+}
+
+function updateImages() {
     var didSetBg = false;
     var didSetHero = false;
     while (!didSetBg || !didSetHero) {
@@ -72,10 +89,12 @@ function updateImages(noTimer) {
 
     }
 
-    if (noTimer != true) {
-        var delay = Math.floor(Math.random() * maxTimeout) + minTimeout;
-        setTimeout(updateImages, delay);
+    if (timer != null) {
+        clearTimeout(timer);
     }
+
+    var delay = Math.floor(Math.random() * maxTimeout) + minTimeout;
+    timer = setTimeout(updateImages, delay);
 }
 
 /** Sets the element background image. */
@@ -91,9 +110,4 @@ function setImage(type, url) {
     }
 
     $(el).css('background-image', 'url(' + url + ')');
-}
-
-function playMusic() {
-    var sc = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/9455969&amp;color=0066cc&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false";
-    $('#music').prop('src', sc);
 }
