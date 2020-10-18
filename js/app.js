@@ -6,8 +6,8 @@ ImgType = {
 
 var images = [];
 var totalImages = 0;
-var minTimeout = 4100;
-var maxTimeout = 15000;
+var minTimeout = 20 * 1000;
+var maxTimeout = 120 * 1000;
 var timer;
 
 $(function() {
@@ -15,7 +15,7 @@ $(function() {
     // Check if running on mobile.
     var browser = navigator.userAgent.toLowerCase();
     if (browser.includes("android") || browser.includes("iphone")) {
-        alert("Open this site on a desktop device for the best experience:\nmadebycalsmith.com/projector");
+        alert("Open on desktop for the best experience:\nmadebycalsmith.com/projector");
     }
 
     // Add begin button.
@@ -30,7 +30,7 @@ function begin() {
     $('#startButton').remove();
 
     // Fetch image list.
-    $.getJSON('js/images.json?v=3', function(data) {
+    $.getJSON('js/images.json?v=4', function(data) {
         images = data.images;
         totalImages = images.length;
         if (totalImages != 0) {
