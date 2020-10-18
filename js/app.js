@@ -30,7 +30,7 @@ function begin() {
     $('#startButton').remove();
 
     // Fetch image list.
-    $.getJSON('js/images.json?v=4', function(data) {
+    $.getJSON('js/images.json?v=5', function(data) {
         images = data.images;
         totalImages = images.length;
         if (totalImages != 0) {
