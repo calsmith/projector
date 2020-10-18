@@ -6,8 +6,8 @@ ImgType = {
 
 var images = [];
 var totalImages = 0;
-var minTimeout = 20 * 1000;
-var maxTimeout = 120 * 1000;
+var minTimeout = 10 * 1000;
+var maxTimeout = 80 * 1000;
 var timer;
 
 $(function() {
@@ -47,7 +47,6 @@ function begin() {
     var mode = window.location.hash.substr(1);
     if (!mode || mode == '') {
         $('#audio')[0].play();
-        maxTimeout = 0;
     }
 
     // Add click listener.
