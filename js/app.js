@@ -7,7 +7,7 @@ ImgType = {
 var images = [];
 var totalImages = 0;
 var minTimeout = 3 * 1000;
-var maxTimeout = 80 * 1000;
+var maxTimeout = 70 * 1000;
 var timer;
 var lastUsedIndexes = {};
 
