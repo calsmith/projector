@@ -106,7 +106,6 @@ function updateImages() {
 
     var delay = Math.floor(Math.random() * maxTimeout) + minTimeout;
     timer = setTimeout(updateImages, delay);
-    console.log(delay/1000);
 
     // Clear last used index if it gets too large.
     if (Object.keys(lastUsedIndexes).length >= 150) {
